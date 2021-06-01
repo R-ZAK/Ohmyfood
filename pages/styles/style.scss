@@ -1,0 +1,208 @@
+//font
+@font-face {
+	font-family: "Roboto";
+	src: url("/font/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Roboto-Light";
+	src: url("/font/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Shrikhand";
+    src: url("/font/Shrikhand-Regular.otf") format("opentype");
+}
+
+//palette de couleurs
+$grisfooter: #353535;
+$mauve: #9356DC;
+$rose: #FF79DA;
+$vert: #99E2D0;
+$background1: #f6f6f6;
+$background2: #eaeaea;
+$background3: #f5edff;
+$button1: #a35cdc;
+$button2: #fd88ee;
+
+//mixins
+
+@mixin centrer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin carte {
+    height: 80px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+@mixin carte-title {
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+@mixin commentaire{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-right: 20px;
+    font-weight: lighter;
+    font-size: 17px;
+}
+
+//css
+
+body ,.page{
+    width: 100%;
+    margin: 0%;
+    font-family: "Roboto";
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    @include centrer;
+    height: 80px;
+    width: 100%;
+    .previous{
+        font-size: 25px;
+        position: relative;
+        right: 60px;
+    }
+    .previous a{
+        color: black;
+    }
+}
+
+.logo{
+    max-width: 50%;
+}
+
+.img-bg{
+    width: 100%;
+    height: 280px;
+    .img-resto{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.main{
+    border-radius: 35px 35px 0px 0px;
+    background-color: $background1;
+    position: relative;
+    bottom: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 1300px;
+    .main-title{
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        .title{
+            font-family: "Shrikhand";
+            font-weight: lighter;
+            font-size: 29px;
+        }
+        .heart{
+            font-size: 30px;
+        }
+    }
+    .entrees{
+        display: flex;
+        flex-direction: column;     
+        width: 100%;
+    }
+    .plats{
+        display: flex;
+        flex-direction: column;     
+        width: 100%;
+    }
+    .desserts{
+        display: flex;
+        flex-direction: column;     
+        width: 100%;
+    }
+    .commander{
+        background: rgb(163,92,220);
+        background: linear-gradient(355deg, rgba(163,92,220,1) 0%, rgba(253,136,238,1) 100%, rgba(253,136,238,1) 100%);
+        color: white;
+        border-radius: 30px;
+        border: none;
+        font-weight: bold;
+        font-size: 17px;
+        height: 60px;
+        width: 230px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.subtitle{
+    margin-left: 5%;
+    border-bottom: solid $vert;
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.cont-menu{
+    @include centrer;
+    flex-direction: column;
+    width: 100%;
+    .carte{
+        width: 90%;
+        @include carte;
+        .carte-title{
+            @include carte-title;
+        }
+        .commentaire{
+            @include commentaire;
+            .price{
+                font-weight: bold;
+            }
+            .description{
+                text-overflow: ellipsis;
+                height: 20px;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+        .commentaire p{
+            margin-top: 5px;           
+        }
+    }
+}
+
+footer{
+    background-color: $grisfooter;
+    min-height: 200px;
+    display: flex;
+    .titre-footer {
+        margin-left: 35px;
+        font-size: 1.2rem;
+        font-family: "Shrikhand"; 
+        color: white;
+        margin-top: 30px;   
+        font-weight: lighter;     
+    }
+}
+
+footer ul{
+    list-style-type: none;
+    color: white;
+    li {
+        margin-bottom: 10px;
+    }
+}   
